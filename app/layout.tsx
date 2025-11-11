@@ -64,6 +64,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://mikamifudosan.com/",
   },
+  icons: {
+    icon: [{ url: "/icon.png", sizes: "192x192", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/icon.png"],
+  },
 };
 
 const navItems: NavItem[] = [
