@@ -47,7 +47,7 @@ export const metadata: Metadata = {
       "京都・大阪エリアで土地仲介・買取、インテリア、保険、リフォームをトータルサポートする三上不動産。地域密着のノウハウで資産価値を最大化します。",
     images: [
       {
-        url: "https://mikamifudosan.com/ogp.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "株式会社 三上不動産のサービス紹介",
@@ -59,15 +59,18 @@ export const metadata: Metadata = {
     title: "株式会社 三上不動産 | 京都・大阪の不動産とリフォーム",
     description:
       "土地仲介・買取からインテリアコーディネート、保険までワンストップでお手伝いします。",
-    images: ["https://mikamifudosan.com/ogp.jpg"],
+    images: ["/opengraph-image"],
   },
   alternates: {
     canonical: "https://mikamifudosan.com/",
   },
   icons: {
-    icon: [{ url: "/icon.png", sizes: "192x192", type: "image/png" }],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-    shortcut: ["/icon.png"],
+    icon: [
+      { url: "/icon", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/icon"],
   },
 };
 
