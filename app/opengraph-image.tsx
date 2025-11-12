@@ -29,6 +29,9 @@ export default function OpengraphImage() {
             height: 360,
             borderRadius: 48,
             boxShadow: "0 25px 60px rgba(0,0,0,0.45)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <BrandGlyph fontSize={220} borderRadius={48} />
