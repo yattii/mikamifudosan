@@ -1,3 +1,8 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
+import { sendContactEmail } from "@/lib/contact-email";
+
 const contactTypes = [
   { value: "reform", label: "リフォーム" },
   { value: "property", label: "物件相談" },
@@ -245,7 +250,3 @@ export default function ContactPage() {
     </div>
   );
 }
-"use client";
-
-import { useState, type FormEvent } from "react";
-import { sendContactEmail } from "@/lib/contact-email";
