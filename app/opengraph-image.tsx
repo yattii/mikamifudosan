@@ -1,12 +1,12 @@
 import { ImageResponse } from "next/og";
-import { BrandGlyph, brandIconTextColor } from "@/lib/brand-icon";
+import { siteIconContentType, siteIconDataUrl } from "@/lib/site-icon";
 
+export const runtime = "nodejs";
 export const size = {
   width: 1200,
   height: 630,
 };
-
-export const contentType = "image/png";
+export const contentType = siteIconContentType;
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -17,35 +17,48 @@ export default function OpengraphImage() {
           height: "100%",
           display: "flex",
           alignItems: "center",
-          gap: 72,
-          padding: "80px 96px",
-          background: "#03130f",
-          color: brandIconTextColor,
+          gap: 48,
+          padding: "120px 140px",
+          background: "radial-gradient(circle at top, #0f172a, #020617 60%)",
+          color: "#f8fafc",
         }}
       >
         <div
           style={{
             width: 360,
             height: 360,
-            borderRadius: 48,
-            boxShadow: "0 25px 60px rgba(0,0,0,0.45)",
+            borderRadius: 80,
+            background: "rgba(15,23,42,0.7)",
+            boxShadow: "0 35px 120px rgba(0,0,0,0.6)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            padding: 32,
           }}
         >
-          <BrandGlyph fontSize={220} borderRadius={48} />
+          <img
+            src={siteIconDataUrl}
+            alt="株式会社三上不動産のアイコン"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+              backgroundColor: "#fff",
+              borderRadius: 48,
+              padding: 36,
+            }}
+          />
         </div>
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: 20,
+            gap: 28,
           }}
         >
           <span
             style={{
-              fontSize: 72,
+              fontSize: 64,
               fontWeight: 700,
               letterSpacing: "0.08em",
             }}
@@ -54,33 +67,23 @@ export default function OpengraphImage() {
           </span>
           <span
             style={{
-              fontSize: 36,
+              fontSize: 32,
+              lineHeight: 1.5,
               fontWeight: 500,
-              lineHeight: 1.4,
-              color: "#d1fae5",
+              color: "rgba(248,250,252,0.8)",
             }}
           >
-            京都・大阪エリアで土地仲介・リフォームまで
-            ワンストップでサポートする総合不動産パートナー
+            京都・大阪エリアの土地仲介／リフォーム／買取査定を
+            ワンストップで支援する総合不動産パートナー
           </span>
-          <div
-            style={{
-              display: "flex",
-              gap: 16,
-              fontSize: 28,
-              fontWeight: 600,
-            }}
-          >
-            <span>土地仲介</span>
-            <span>リフォーム</span>
-            <span>保険</span>
-            <span>インテリア</span>
-          </div>
         </div>
       </div>
     ),
     {
       ...size,
+      headers: {
+        "content-type": siteIconContentType,
+      },
     }
   );
 }

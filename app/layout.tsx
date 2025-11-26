@@ -3,6 +3,13 @@ import { Noto_Serif_JP, Roboto_Mono } from "next/font/google";
 import SiteFooter from "./components/site-footer";
 import SiteHeader, { type NavItem } from "./components/site-header";
 import "./globals.css";
+import {
+  siteIconContentType,
+  siteIconDimensions,
+  siteIconPublicPath,
+} from "@/lib/site-icon";
+
+const siteIconAlt = "株式会社 三上不動産のロゴマーク";
 
 const primaryFont = Noto_Serif_JP({
   variable: "--font-geist-sans",
@@ -50,7 +57,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "株式会社 三上不動産のサービス紹介",
+        alt: siteIconAlt,
       },
     ],
   },
@@ -66,11 +73,25 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      {
+        url: siteIconPublicPath,
+        sizes: `${siteIconDimensions.width}x${siteIconDimensions.height}`,
+        type: siteIconContentType,
+      },
+      {
+        url: "/icon-512.png",
+        sizes: "512x512",
+        type: siteIconContentType,
+      },
     ],
-    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
-    shortcut: ["/icon"],
+    apple: [
+      {
+        url: siteIconPublicPath,
+        sizes: `${siteIconDimensions.width}x${siteIconDimensions.height}`,
+        type: siteIconContentType,
+      },
+    ],
+    shortcut: [siteIconPublicPath],
   },
 };
 

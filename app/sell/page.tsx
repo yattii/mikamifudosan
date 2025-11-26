@@ -154,7 +154,7 @@ export default function SellPage() {
                 id="ownerEmail"
                 name="ownerEmail"
                 type="email"
-                placeholder="example@mikami.co.jp"
+                placeholder="katayamakensetsu.mikami@gmail.com"
                 className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
               />
             </div>
@@ -171,7 +171,7 @@ export default function SellPage() {
                 id="ownerPhone"
                 name="ownerPhone"
                 type="tel"
-                placeholder="075-000-0000"
+                placeholder="075 981 7170"
                 className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
               />
             </div>

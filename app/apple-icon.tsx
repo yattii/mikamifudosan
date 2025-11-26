@@ -1,18 +1,24 @@
-import { ImageResponse } from "next/og";
-import { BrandGlyph } from "@/lib/brand-icon";
+import { NextResponse } from "next/server";
+import {
+  getSiteIconBuffer,
+  siteIconContentType,
+  siteIconDimensions,
+} from "@/lib/site-icon";
+
+export const runtime = "nodejs";
 
 export const size = {
-  width: 180,
-  height: 180,
+  width: siteIconDimensions.width,
+  height: siteIconDimensions.height,
 };
 
-export const contentType = "image/png";
+export const contentType = siteIconContentType;
 
 export default function AppleIcon() {
-  return new ImageResponse(
-    <BrandGlyph fontSize={82} borderRadius={40} />,
-    {
-      ...size,
-    }
-  );
+  const buffer = Buffer.from(getSiteIconBuffer());
+  return new NextResponse(buffer, {
+    headers: {
+      "content-type": siteIconContentType,
+    },
+  });
 }

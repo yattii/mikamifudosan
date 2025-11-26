@@ -48,7 +48,7 @@ export default function ContactPage() {
               id="email"
               name="email"
               type="email"
-              placeholder="example@mikami.co.jp"
+              placeholder="katayamakensetsu.mikami@gmail.com"
               className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
             />
           </div>
@@ -66,7 +66,7 @@ export default function ContactPage() {
               id="phone"
               name="phone"
               type="tel"
-              placeholder="075-000-0000"
+              placeholder="075 981 7170"
               className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
             />
           </div>
@@ -195,7 +195,7 @@ export default function ContactPage() {
         <h2 className="text-base font-semibold text-slate-900">
           お電話でのお問い合わせ
         </h2>
-        <p className="text-lg font-semibold text-slate-900">075-000-0000</p>
+        <p className="text-lg font-semibold text-slate-900">075 981 7170</p>
         <p>受付時間 9:00〜18:00（日・祝定休）</p>
         <p className="text-xs text-slate-400">
           フォーム送信後の自動返信メールや社内通知（メール / Slack など）は順次実装予定です。
