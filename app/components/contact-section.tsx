@@ -1,3 +1,7 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
+import { sendContactEmail } from "@/lib/contact-email";
 const contactTypes = [
   { value: "reform", label: "リフォーム" },
   { value: "property", label: "物件相談" },
@@ -5,6 +9,30 @@ const contactTypes = [
 ];
 
 export default function ContactSection() {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("loading");
+    setErrorMessage(null);
+
+    try {
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+      await sendContactEmail(formData);
+      form.reset();
+      setStatus("success");
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "送信に失敗しました。時間をおいて再度お試しください。"
+      );
+      setStatus("error");
+    }
+  }
+
   return (
     <section id="contact" className="space-y-10">
       <div className="flex flex-col gap-4">
@@ -19,7 +47,11 @@ export default function ContactSection() {
         </p>
       </div>
       <div className="grid gap-8 md:grid-cols-[1.2fr,1fr]">
-        <form className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <form
+          className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+          onSubmit={handleSubmit}
+          encType="multipart/form-data"
+        >
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <label
@@ -178,10 +210,22 @@ export default function ContactSection() {
           </div>
           <button
             type="submit"
-            className="w-full rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-600"
+            className="w-full rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-70"
+            disabled={status === "loading"}
           >
-            入力内容を送信
+            {status === "loading" ? "送信中..." : "入力内容を送信"}
           </button>
+          {status === "success" && (
+            <p className="text-sm text-emerald-600">
+              送信が完了しました。担当者よりご連絡いたします。
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-sm text-red-600">
+              {errorMessage ||
+                "送信に失敗しました。時間をおいて再度お試しください。"}
+            </p>
+          )}
         </form>
         <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 text-sm text-slate-600 shadow-sm">
           <div>

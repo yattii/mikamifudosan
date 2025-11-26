@@ -116,3 +116,8 @@ export default async function Home() {
     </div>
   );
 }
+
+// git status                    
+// git add .                       
+// git commit -m "Fix something"  
+// git push
