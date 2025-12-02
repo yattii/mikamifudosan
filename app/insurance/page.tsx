@@ -66,10 +66,6 @@ export default function InsurancePage() {
           ))}
         </ol>
       </section>
-
-      <section className="rounded-3xl border border-dashed border-slate-300 bg-white/70 p-8 text-sm text-slate-600">
-        将来的には microCMS の固定ページから補償プランや最新キャンペーン情報を更新できるようにします。お問い合わせフォームと連携し、最適な保険プランの提案に繋げます。
-      </section>
     </main>
   </div>
   );

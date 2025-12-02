@@ -60,8 +60,9 @@ export default async function ReformPage({ searchParams }: ReformPageProps) {
     );
   }
 
+  // category は複数選択の可能性があるため contains でフィルタ
   const filters = selectedCategory
-    ? `category[equals]${selectedCategory}`
+    ? `category[contains]${selectedCategory}`
     : undefined;
 
   const reformsResponse = await getReforms({

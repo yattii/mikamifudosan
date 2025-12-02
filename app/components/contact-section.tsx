@@ -96,7 +96,7 @@ export default function ContactSection() {
                 id="phone"
                 name="phone"
                 type="tel"
-                placeholder="075 981 7170"
+                placeholder="075-981-7170"
                 className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
               />
             </div>
@@ -232,16 +232,24 @@ export default function ContactSection() {
             <h3 className="text-base font-semibold text-slate-900">
               お電話でのご相談
             </h3>
-            <p className="mt-2 text-lg font-semibold text-slate-900">
-              075 981 7170
-            </p>
+            <a
+              href="tel:075-981-7170"
+              className="mt-2 block text-lg font-semibold text-slate-900 hover:text-emerald-600"
+            >
+              075-981-7170
+            </a>
             <p className="text-xs text-slate-500">受付時間 9:00〜18:00（日・祝定休）</p>
           </div>
           <div>
             <h3 className="text-base font-semibold text-slate-900">
               メールでの相談
             </h3>
-            <p className="mt-2">katayamakensetsu.mikami@gmail.com</p>
+            <a
+              href="mailto:katayamakensetsu.mikami@gmail.com"
+              className="mt-2 block hover:text-emerald-600"
+            >
+              katayamakensetsu.mikami@gmail.com
+            </a>
           </div>
           <div>
             <h3 className="text-base font-semibold text-slate-900">

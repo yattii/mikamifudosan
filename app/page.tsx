@@ -103,24 +103,6 @@ export default async function Home() {
     ],
   };
 
-  const serviceAreaHighlights = [
-    {
-      heading: "大阪 不動産・リフォーム",
-      description:
-        "大阪市・北摂エリアのマンションや戸建の売却・買取、物件選び、店舗リフォームまでワンストップ対応。物件 大阪の情報収集からリフォームの設計施工、アフターまで専任チームがサポートします。",
-    },
-    {
-      heading: "京都 不動産・リフォーム",
-      description:
-        "京都市・宇治・八幡エリアで、古民家再生やマンションリノベーション、空き家活用まで幅広く対応。京都 不動産の売却査定とセットでリフォームプランを作成し、資産価値向上を実現します。",
-    },
-    {
-      heading: "八幡 不動産・リフォーム",
-      description:
-        "地元八幡市で培ったネットワークを活かし、八幡 不動産の仲介・買取、バリアフリーや耐震を含む八幡 リフォームを実施。地域密着で短納期の現地調査とプラン提示が可能です。",
-    },
-  ];
-
   const highlightResponse = isMicroCMSEnabled
     ? await getReforms({ limit: 3, orders: "-publishedAt" })
     : null;
@@ -172,39 +154,6 @@ export default async function Home() {
           totalCount={highlightResponse?.totalCount}
         />
         <ServicesSection featureImages={featureImages.slice(0, 4)} />
-        <section className="rounded-3xl bg-white/80 p-8 shadow-xl shadow-emerald-50 ring-1 ring-white/70 lg:p-12">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10">
-            <div className="lg:w-1/3">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-500">
-                SEO Focus
-              </p>
-              <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-900">
-                京都・大阪・八幡の不動産・リフォームを一社完結
-              </h2>
-              <p className="mt-4 text-sm leading-relaxed text-slate-700">
-                三上不動産は「大阪 不動産」「京都 不動産」「八幡 不動産」だけでなく、「大阪 リフォーム」「京都 リフォーム」「八幡 リフォーム」まで地域別に専任担当が対応。ワンストップ体制で物件の査定から改修、アフターフォローまでを最短48時間でご提案します。
-              </p>
-            </div>
-            <div className="grid flex-1 grid-cols-1 gap-6 sm:grid-cols-2">
-              {serviceAreaHighlights.map((item) => (
-                <div
-                  key={item.heading}
-                  className="rounded-2xl border border-emerald-100 bg-linear-to-br from-sky-50 via-white to-emerald-50 p-6 shadow-lg shadow-emerald-50"
-                >
-                  <h3 className="text-lg font-semibold text-slate-900">{item.heading}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-700">{item.description}</p>
-                </div>
-              ))}
-              <div className="rounded-2xl border border-slate-100 bg-linear-to-br from-white via-slate-50 to-white p-6 shadow-lg shadow-emerald-50">
-                <h3 className="text-lg font-semibold text-slate-900">物件 大阪 のご相談</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-700">
-                  大阪の物件探しから購入後のリフォーム、将来的な売却までを見据えたサポートを提供。
-                  収益物件のバリューアップや自宅リノベーションも、現地調査と資金計画を含めてスピード提案します。
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
         <StrengthsSection strengths={strengths} />
         <FaqPreviewSection faqs={faqPreview} />
         <ContactSection />
